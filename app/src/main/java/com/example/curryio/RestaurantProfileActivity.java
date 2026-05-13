@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.content.Intent;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -56,10 +57,8 @@ public class RestaurantProfileActivity extends AppCompatActivity {
             if (itemCount == 0) {
                 Toast.makeText(this, "Add items first", Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(this,
-                        itemCount + " items — UGX " + String.format("%,d", totalPrice),
-                        Toast.LENGTH_SHORT).show();
-                // TODO: navigate to Order Summary / Checkout screen
+                Intent intent = new Intent(RestaurantProfileActivity.this, OrderActivity.class);
+                startActivity(intent);
             }
         });
     }

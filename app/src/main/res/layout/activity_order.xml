@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5">
+
+    <!-- ── SCROLLABLE CONTENT ── -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/summarySection"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="16dp">
+
+            <!-- ── TOOLBAR ── -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="16dp"
+                android:paddingTop="48dp"
+                android:paddingBottom="16dp">
+
+                <ImageButton
+                    android:id="@+id/btnBack"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/ic_arrow_back"
+                    android:contentDescription="Back"
+                    android:layout_marginEnd="12dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Your Order"
+                    android:textSize="26sp"
+                    android:textStyle="bold"
+                    android:textColor="#000000" />
+
+            </LinearLayout>
+
+            <!-- ── ORDERING FROM ── -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="20dp"
+                android:paddingBottom="24dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ORDERING FROM"
+                    android:textSize="11sp"
+                    android:textColor="#AAAAAA"
+                    android:letterSpacing="0.1"
+                    android:layout_marginBottom="4dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Urban Masala"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:textColor="#000000" />
+
+            </LinearLayout>
+
+            <!-- ── ORDER ITEM 1: Butter Chicken ── -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="14dp">
+
+                <!-- Name + price -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Butter Chicken"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="#000000"
+                        android:layout_marginBottom="4dp" />
+
+                    <TextView
+                        android:id="@+id/tvPrice1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="UGX 25,000"
+                        android:textSize="14sp"
+                        android:textColor="#888888" />
+
+                </LinearLayout>
+
+                <!-- Quantity control: − count + -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="44dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/bg_qty_control"
+                    android:paddingHorizontal="4dp">
+
+                    <TextView
+                        android:id="@+id/btnMinus1"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:text="−"
+                        android:textSize="20sp"
+                        android:textColor="#000000"
+                        android:gravity="center"
+                        android:background="@drawable/bg_add_button" />
+
+                    <TextView
+                        android:id="@+id/tvQty1"
+                        android:layout_width="40dp"
+                        android:layout_height="wrap_content"
+                        android:text="1"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="#000000"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:id="@+id/btnPlus1"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:text="+"
+                        android:textSize="20sp"
+                        android:textColor="#000000"
+                        android:gravity="center"
+                        android:background="@drawable/bg_add_button" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- ── ORDER ITEM 2: Garlic Naan ── -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="14dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Garlic Naan"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="#000000"
+                        android:layout_marginBottom="4dp" />
+
+                    <TextView
+                        android:id="@+id/tvPrice2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="UGX 4,500"
+                        android:textSize="14sp"
+                        android:textColor="#888888" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="44dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/bg_qty_control"
+                    android:paddingHorizontal="4dp">
+
+                    <TextView
+                        android:id="@+id/btnMinus2"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:text="−"
+                        android:textSize="20sp"
+                        android:textColor="#000000"
+                        android:gravity="center"
+                        android:background="@drawable/bg_add_button" />
+
+                    <TextView
+                        android:id="@+id/tvQty2"
+                        android:layout_width="40dp"
+                        android:layout_height="wrap_content"
+                        android:text="2"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="#000000"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:id="@+id/btnPlus2"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:text="+"
+                        android:textSize="20sp"
+                        android:textColor="#000000"
+                        android:gravity="center"
+                        android:background="@drawable/bg_add_button" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- ── ADD MORE ITEMS ── -->
+            <LinearLayout
+                android:id="@+id/btnAddMore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="16dp">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_add_circle_outline"
+                    android:layout_marginEnd="8dp"
+                    app:tint="#FEAE2C"
+                    android:contentDescription="Add" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Add more items"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="#FEAE2C" />
+
+            </LinearLayout>
+
+            <!-- ── DIVIDER ── -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#E8E8E8"
+                android:layout_marginVertical="8dp" />
+
+            <!-- ── PICK ARRIVAL TIME ── -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="16dp">
+
+                <!-- Header row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="20dp"
+                    android:layout_marginBottom="16dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Pick Arrival Time"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:textColor="#000000" />
+
+                    <!-- Today badge -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_today_badge"
+                        android:paddingHorizontal="12dp"
+                        android:paddingVertical="6dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="14dp"
+                            android:layout_height="14dp"
+                            android:src="@drawable/ic_schedule"
+                            android:layout_marginEnd="5dp"
+                            android:contentDescription="Clock" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Today"
+                            android:textSize="13sp"
+                            android:textColor="#555555" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!-- Time chips horizontal scroll -->
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="20dp"
+                    android:clipToPadding="false"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/chip1230"
+                            android:layout_width="wrap_content"
+                            android:layout_height="46dp"
+                            android:text="12:30"
+                            android:textSize="15sp"
+                            android:textColor="#000000"
+                            android:background="@drawable/bg_chip_inactive"
+                            android:paddingHorizontal="20dp"
+                            android:gravity="center"
+                            android:layout_marginEnd="10dp" />
+
+                        <TextView
+                            android:id="@+id/chip100"
+                            android:layout_width="wrap_content"
+                            android:layout_height="46dp"
+                            android:text="1:00"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            android:textColor="#000000"
+                            android:background="@drawable/bg_button_amber"
+                            android:paddingHorizontal="20dp"
+                            android:gravity="center"
+                            android:layout_marginEnd="10dp" />
+
+                        <TextView
+                            android:id="@+id/chip130"
+                            android:layout_width="wrap_content"
+                            android:layout_height="46dp"
+                            android:text="1:30"
+                            android:textSize="15sp"
+                            android:textColor="#000000"
+                            android:background="@drawable/bg_chip_inactive"
+                            android:paddingHorizontal="20dp"
+                            android:gravity="center"
+                            android:layout_marginEnd="10dp" />
+
+                        <TextView
+                            android:id="@+id/chip200"
+                            android:layout_width="wrap_content"
+                            android:layout_height="46dp"
+                            android:text="2:00"
+                            android:textSize="15sp"
+                            android:textColor="#000000"
+                            android:background="@drawable/bg_chip_inactive"
+                            android:paddingHorizontal="20dp"
+                            android:gravity="center"
+                            android:layout_marginEnd="10dp" />
+
+                        <TextView
+                            android:id="@+id/chip230"
+                            android:layout_width="wrap_content"
+                            android:layout_height="46dp"
+                            android:text="2:30"
+                            android:textSize="15sp"
+                            android:textColor="#000000"
+                            android:background="@drawable/bg_chip_inactive"
+                            android:paddingHorizontal="20dp"
+                            android:gravity="center" />
+
+                    </LinearLayout>
+
+                </HorizontalScrollView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- ── SUMMARY + PAY BUTTON (fixed bottom) ── -->
+    <LinearLayout
+        android:id="@+id/summarySection"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#FFFFFF"
+        android:paddingHorizontal="20dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="28dp"
+        android:elevation="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Subtotal row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Subtotal"
+                android:textSize="15sp"
+                android:textColor="#888888" />
+
+            <TextView
+                android:id="@+id/tvSubtotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="UGX 27,500"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="#000000" />
+
+        </LinearLayout>
+
+        <!-- Taxes row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Taxes &amp; Fees"
+                android:textSize="15sp"
+                android:textColor="#888888" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="UGX 5,000"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="#000000" />
+
+        </LinearLayout>
+
+        <!-- Pay Now button -->
+        <Button
+            android:id="@+id/btnPayNow"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@drawable/bg_button_amber"
+            android:text="Pay Now  —  UGX 32,500"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:stateListAnimator="@null" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

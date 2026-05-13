@@ -43,6 +43,10 @@
             android:name=".RestaurantProfileActivity"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".OrderActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
 
     </application>
 
