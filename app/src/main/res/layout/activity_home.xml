@@ -1,0 +1,540 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5">
+
+    <!-- Scrollable content sits above the bottom nav -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:paddingBottom="12dp"
+        android:clipToPadding="false"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottomNav"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- ── APP TITLE ── -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Curry.io"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:paddingHorizontal="20dp"
+                android:paddingTop="48dp"
+                android:paddingBottom="16dp" />
+
+            <!-- ── SEARCH BAR ── -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginBottom="28dp"
+                android:background="@drawable/bg_search_bar"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="16dp"
+                android:elevation="4dp">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_search"
+                    android:contentDescription="Search icon" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:hint="Search for restaurants or cuisine"
+                    android:textColorHint="#AAAAAA"
+                    android:textColor="#000000"
+                    android:textSize="15sp"
+                    android:paddingStart="12dp"
+                    android:inputType="text"
+                    android:maxLines="1" />
+
+            </LinearLayout>
+
+            <!-- ── NEARBY RESTAURANTS HEADER ── -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="20dp"
+                android:layout_marginBottom="14dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Nearby Restaurants"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:textColor="#000000" />
+
+                <TextView
+                    android:id="@+id/tvSeeAll"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="See all"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="#FEAE2C" />
+
+            </LinearLayout>
+
+            <!-- ── RESTAURANT CARDS (horizontal scroll) ── -->
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="20dp"
+                android:clipToPadding="false"
+                android:scrollbars="none"
+                android:layout_marginBottom="32dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <!-- Card 1: Kati Kati -->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardKatiKati"
+                        android:layout_width="290dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="14dp"
+                        app:cardCornerRadius="14dp"
+                        app:cardElevation="4dp"
+                        app:cardBackgroundColor="#FFFFFF">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <!-- Image placeholder — replace with real image later -->
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="190dp"
+                                android:scaleType="centerCrop"
+                                android:src="@color/card_placeholder_1"
+                                android:contentDescription="Restaurant image" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:padding="14dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Kati Kati"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold"
+                                    android:textColor="#000000"
+                                    android:layout_marginBottom="4dp" />
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:gravity="center_vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="African"
+                                        android:textSize="13sp"
+                                        android:textColor="#888888" />
+
+                                    <View
+                                        android:layout_width="4dp"
+                                        android:layout_height="4dp"
+                                        android:layout_marginHorizontal="6dp"
+                                        android:background="@drawable/bg_dot_divider" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="1.2 km"
+                                        android:textSize="13sp"
+                                        android:textColor="#888888" />
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- Card 2: Java House -->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardJavaHouse"
+                        android:layout_width="290dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="14dp"
+                        app:cardCornerRadius="14dp"
+                        app:cardElevation="4dp"
+                        app:cardBackgroundColor="#FFFFFF">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="190dp"
+                                android:scaleType="centerCrop"
+                                android:src="@color/card_placeholder_2"
+                                android:contentDescription="Restaurant image" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:padding="14dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Java House"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold"
+                                    android:textColor="#000000"
+                                    android:layout_marginBottom="4dp" />
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:gravity="center_vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Continental"
+                                        android:textSize="13sp"
+                                        android:textColor="#888888" />
+
+                                    <View
+                                        android:layout_width="4dp"
+                                        android:layout_height="4dp"
+                                        android:layout_marginHorizontal="6dp"
+                                        android:background="@drawable/bg_dot_divider" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="2.5 km"
+                                        android:textSize="13sp"
+                                        android:textColor="#888888" />
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- Card 3: Carnivore -->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardCarnivore"
+                        android:layout_width="290dp"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="14dp"
+                        app:cardElevation="4dp"
+                        app:cardBackgroundColor="#FFFFFF">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="190dp"
+                                android:scaleType="centerCrop"
+                                android:src="@color/card_placeholder_3"
+                                android:contentDescription="Restaurant image" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:padding="14dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Carnivore Resto"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold"
+                                    android:textColor="#000000"
+                                    android:layout_marginBottom="4dp" />
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:gravity="center_vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Grill"
+                                        android:textSize="13sp"
+                                        android:textColor="#888888" />
+
+                                    <View
+                                        android:layout_width="4dp"
+                                        android:layout_height="4dp"
+                                        android:layout_marginHorizontal="6dp"
+                                        android:background="@drawable/bg_dot_divider" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="3.8 km"
+                                        android:textSize="13sp"
+                                        android:textColor="#888888" />
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+            </HorizontalScrollView>
+
+            <!-- ── EXPLORE BY CATEGORY HEADER ── -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Explore by Category"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:paddingHorizontal="20dp"
+                android:layout_marginBottom="14dp" />
+
+            <!-- ── CATEGORY GRID ── -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="20dp"
+                android:layout_marginBottom="16dp">
+
+                <!-- Row 1: Full width — Healthy Choices -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/catHealthy"
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    android:layout_marginBottom="8dp"
+                    app:cardCornerRadius="14dp"
+                    app:cardElevation="2dp">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#1B3D35">
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/bg_category_overlay" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom|start"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Healthy Choices"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:textColor="#FFFFFF" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="12 places nearby"
+                                android:textSize="12sp"
+                                android:textColor="#CCFFFFFF"
+                                android:layout_marginTop="2dp" />
+
+                        </LinearLayout>
+
+                    </FrameLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <!-- Row 2: Fast Food + Cafes side by side -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="130dp"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="8dp">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/catFastFood"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="4dp"
+                        app:cardCornerRadius="14dp"
+                        app:cardElevation="2dp">
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="#3D2314">
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/bg_category_overlay" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="bottom|start"
+                                android:text="Fast Food"
+                                android:textSize="15sp"
+                                android:textStyle="bold"
+                                android:textColor="#FFFFFF"
+                                android:padding="14dp" />
+
+                        </FrameLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/catCafes"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_marginStart="4dp"
+                        app:cardCornerRadius="14dp"
+                        app:cardElevation="2dp">
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="#1F2D3D">
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/bg_category_overlay" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="bottom|start"
+                                android:text="Cafes"
+                                android:textSize="15sp"
+                                android:textStyle="bold"
+                                android:textColor="#FFFFFF"
+                                android:padding="14dp" />
+
+                        </FrameLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+                <!-- Row 3: Asian Fusion (left half only) -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="130dp"
+                    android:orientation="horizontal">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/catAsian"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="4dp"
+                        app:cardCornerRadius="14dp"
+                        app:cardElevation="2dp">
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="#3A2512">
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/bg_category_overlay" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="bottom|start"
+                                android:text="Asian Fusion"
+                                android:textSize="15sp"
+                                android:textStyle="bold"
+                                android:textColor="#FFFFFF"
+                                android:padding="14dp" />
+
+                        </FrameLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- Empty space to keep grid balanced -->
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_marginStart="4dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- ── BOTTOM NAVIGATION ── -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNav"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#141A32"
+        app:itemIconTint="@color/bottom_nav_color"
+        app:itemTextColor="@color/bottom_nav_color"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/bottom_nav_menu"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
