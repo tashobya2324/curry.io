@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0D1B2A"
+    android:id="@+id/main">
+
+    <!-- Decorative ring 1 (largest) -->
+    <View
+        android:id="@+id/ring1"
+        android:layout_width="520dp"
+        android:layout_height="520dp"
+        android:alpha="0.08"
+        android:background="@drawable/ring_circle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Decorative ring 2 -->
+    <View
+        android:id="@+id/ring2"
+        android:layout_width="420dp"
+        android:layout_height="420dp"
+        android:alpha="0.10"
+        android:background="@drawable/ring_circle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Decorative ring 3 -->
+    <View
+        android:id="@+id/ring3"
+        android:layout_width="320dp"
+        android:layout_height="320dp"
+        android:alpha="0.13"
+        android:background="@drawable/ring_circle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Decorative ring 4 -->
+    <View
+        android:id="@+id/ring4"
+        android:layout_width="220dp"
+        android:layout_height="220dp"
+        android:alpha="0.16"
+        android:background="@drawable/ring_circle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Center content: icon + text stacked vertically -->
+    <LinearLayout
+        android:id="@+id/centerContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- Amber circle with flame icon -->
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivLogo"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@drawable/bg_amber_circle"
+            android:padding="20dp"
+            app:tint="#FFFFFF"
+            />
+
+        <!-- "Curry.io" — two TextViews side by side for two-tone colour -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Curry."
+                android:textColor="#FFFFFF"
+                android:textSize="36sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="io"
+                android:textColor="#FEAE2C"
+                android:textSize="36sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <!-- "Skip the Wait." muted subtitle -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Skip the Wait."
+            android:textColor="#88AABB"
+            android:textSize="16sp" />
+
+        <!-- "Walk In. Eat Immediately." bold white -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Walk In. Eat Immediately."
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
