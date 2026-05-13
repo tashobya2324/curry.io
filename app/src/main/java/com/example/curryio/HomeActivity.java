@@ -2,6 +2,7 @@ package com.example.curryio;
 
 import android.os.Bundle;
 import android.widget.Toast;
+import android.content.Intent;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
@@ -40,10 +41,10 @@ public class HomeActivity extends AppCompatActivity {
 
         // ── Restaurant card clicks ──
         CardView cardKatiKati = findViewById(R.id.cardKatiKati);
-        cardKatiKati.setOnClickListener(v ->
-                        Toast.makeText(this, "Kati Kati tapped", Toast.LENGTH_SHORT).show()
-                // TODO: open RestaurantProfileActivity
-        );
+        cardKatiKati.setOnClickListener(v -> {
+            Intent intent = new Intent(HomeActivity.this, RestaurantProfileActivity.class);
+            startActivity(intent);
+        });
 
         // ── Category clicks ──
         CardView catHealthy = findViewById(R.id.catHealthy);
