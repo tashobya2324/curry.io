@@ -51,10 +51,11 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         // ── Log In ──
-        btnLogin.setOnClickListener(v ->
-                        Toast.makeText(this, "Logging in...", Toast.LENGTH_SHORT).show()
-                // TODO: validate and call your API
-        );
+        btnLogin.setOnClickListener(v -> {
+            Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+            startActivity(intent);
+            finish(); // so user can't press Back to return to login
+        });
 
         // ── Forgot Password ──
         tvForgot.setOnClickListener(v ->
