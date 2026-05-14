@@ -73,10 +73,12 @@ public class OrdersActivity extends AppCompatActivity {
         btnBack.setOnClickListener(v -> finish());
 
         // ── View Pickup QR Code ──
-        findViewById(R.id.btnViewQR).setOnClickListener(v ->
-                        Toast.makeText(this, "Showing QR for active order", Toast.LENGTH_SHORT).show()
-                // TODO: open ConfirmationActivity with this order's data
-        );
+        findViewById(R.id.btnViewQR).setOnClickListener(v -> {
+            Intent intent = new Intent(OrdersActivity.this, ConfirmationActivity.class);
+            intent.putExtra("arrival_time", "1:15 PM");
+            intent.putExtra("total", 53000);
+            startActivity(intent);
+        });
 
         // ── Bottom Nav — Orders is the active tab ──
         BottomNavigationView bottomNav = findViewById(R.id.bottomNav);
