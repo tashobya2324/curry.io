@@ -3,7 +3,7 @@ package com.example.curryio;
 import android.os.Bundle;
 import android.widget.Toast;
 import android.content.Intent;
-
+import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
@@ -53,5 +53,12 @@ public class HomeActivity extends AppCompatActivity {
         catHealthy.setOnClickListener(v ->
                 Toast.makeText(this, "Healthy Choices tapped", Toast.LENGTH_SHORT).show()
         );
+
+        // ── See All → Restaurant Listing ──
+        TextView tvSeeAll = findViewById(R.id.tvSeeAll);
+        tvSeeAll.setOnClickListener(v -> {
+            Intent intent = new Intent(HomeActivity.this, RestaurantListActivity.class);
+            startActivity(intent);
+        });
     }
 }
