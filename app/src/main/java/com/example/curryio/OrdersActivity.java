@@ -52,6 +52,7 @@ public class OrdersActivity extends AppCompatActivity {
                 tvTabPast.setTextColor(getResources().getColor(android.R.color.darker_gray));
             }
         });
+        // this is a comment
 
         tabPast.setOnClickListener(v -> {
             if (isActiveTab) {
