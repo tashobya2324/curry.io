@@ -209,6 +209,21 @@
                     android:paddingVertical="10dp" />
 
             </LinearLayout>
+            <!-- Reserve a Table button — sits between chips and menu -->
+            <Button
+                android:id="@+id/btnReserveTable"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/bg_outline_button"
+                android:text="Reserve a Table"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:drawableStart="@drawable/ic_calendar"
+                android:drawablePadding="8dp"
+                android:stateListAnimator="@null" />
 
             <!-- ── MEALS SECTION HEADER ── -->
             <LinearLayout

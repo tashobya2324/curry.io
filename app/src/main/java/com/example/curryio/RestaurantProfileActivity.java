@@ -51,7 +51,13 @@ public class RestaurantProfileActivity extends AppCompatActivity {
                 tvTotal.setText("UGX " + String.format("%,d", totalPrice));
             });
         }
-
+// Reserve a Table
+        findViewById(R.id.btnReserveTable).setOnClickListener(v -> {
+            Intent intent = new Intent(
+                    RestaurantProfileActivity.this, TableReservationActivity.class
+            );
+            startActivity(intent);
+        });
         // ── Order Now ──
         findViewById(R.id.btnOrderNow).setOnClickListener(v -> {
             if (itemCount == 0) {

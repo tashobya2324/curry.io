@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -30,9 +29,12 @@ public class ConfirmationActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_confirmation);
 
-        // ── Read data passed from OrderActivity ──
-        String arrivalTime = getIntent().getStringExtra("arrival_time");
-        int    total       = getIntent().getIntExtra("total", 0);
+        // ── Read data passed from previous screen ──
+        String arrivalTime    = getIntent().getStringExtra("arrival_time");
+        int    total          = getIntent().getIntExtra("total", 0);
+        boolean isReservation = getIntent().getBooleanExtra("is_reservation", false);
+        int    partySize      = getIntent().getIntExtra("party_size", 2);
+        String date           = getIntent().getStringExtra("date");
 
         if (arrivalTime == null) arrivalTime = "1:00 PM";
 
@@ -45,13 +47,21 @@ public class ConfirmationActivity extends AppCompatActivity {
         TextView tvTotal   = findViewById(R.id.tvTotal);
         ImageView ivQr     = findViewById(R.id.ivQrCode);
 
-        // Set text
-        tvTime.setText("See you at " + arrivalTime);
+        // ── Set text depending on type (order vs reservation) ──
+        if (isReservation) {
+            tvTime.setText("Table for " + partySize
+                    + " on " + (date != null ? date : "Today")
+                    + " at " + arrivalTime);
+            tvTotal.setText("UGX " + String.format("%,d", total)
+                    + "  (Reservation Fee)");
+        } else {
+            tvTime.setText("See you at " + arrivalTime);
+            tvTotal.setText("UGX " + String.format("%,d", total));
+        }
+
         tvOrderNo.setText("Order #" + orderNumber);
-        tvTotal.setText("UGX " + String.format("%,d", total));
 
         // ── Generate QR Code ──
-        // We encode the full order details so any scanner can read them
         String qrContent = "ORDER:" + orderNumber
                 + " | Restaurant: Urban Masala"
                 + " | Time: " + arrivalTime
@@ -65,7 +75,6 @@ public class ConfirmationActivity extends AppCompatActivity {
         // ── Close button ──
         ImageButton btnClose = findViewById(R.id.btnClose);
         btnClose.setOnClickListener(v -> {
-            // Go all the way back to Home, clear the stack
             Intent intent = new Intent(ConfirmationActivity.this, HomeActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
@@ -79,28 +88,19 @@ public class ConfirmationActivity extends AppCompatActivity {
         });
     }
 
-    /**
-     * Converts a string into a QR code Bitmap using ZXing.
-     * @param content The text to encode inside the QR code
-     * @param sizePx  Width and height of the output image in pixels
-     * @return        A black-and-white Bitmap ready to display in an ImageView
-     */
+    // This method does ONE thing — generate a QR bitmap and return it
+    // Nothing else belongs inside here
     private Bitmap generateQRCode(String content, int sizePx) {
         QRCodeWriter writer = new QRCodeWriter();
         try {
-            // Ask ZXing to encode the content into a grid of black/white squares
             BitMatrix bitMatrix = writer.encode(content, BarcodeFormat.QR_CODE, sizePx, sizePx);
-
-            // Convert the BitMatrix into an actual Bitmap pixel by pixel
             Bitmap bitmap = Bitmap.createBitmap(sizePx, sizePx, Bitmap.Config.RGB_565);
             for (int x = 0; x < sizePx; x++) {
                 for (int y = 0; y < sizePx; y++) {
-                    // true = dark square, false = light square
                     bitmap.setPixel(x, y, bitMatrix.get(x, y) ? Color.BLACK : Color.WHITE);
                 }
             }
             return bitmap;
-
         } catch (WriterException e) {
             e.printStackTrace();
             return null;
