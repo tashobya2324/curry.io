@@ -73,9 +73,10 @@ public class ConfirmationActivity extends AppCompatActivity {
         });
 
         // ── View Order History ──
-        findViewById(R.id.btnViewHistory).setOnClickListener(v ->
-                Toast.makeText(this, "Order History coming soon", Toast.LENGTH_SHORT).show()
-        );
+        findViewById(R.id.btnViewHistory).setOnClickListener(v -> {
+            Intent intent = new Intent(ConfirmationActivity.this, OrdersActivity.class);
+            startActivity(intent);
+        });
     }
 
     /**

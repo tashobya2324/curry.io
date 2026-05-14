@@ -30,7 +30,8 @@ public class HomeActivity extends AppCompatActivity {
             if (id == R.id.nav_home) {
                 return true;
             } else if (id == R.id.nav_orders) {
-                Toast.makeText(this, "Orders coming soon", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(HomeActivity.this, OrdersActivity.class);
+                startActivity(intent);
                 return true;
             } else if (id == R.id.nav_profile) {
                 Toast.makeText(this, "Profile coming soon", Toast.LENGTH_SHORT).show();
