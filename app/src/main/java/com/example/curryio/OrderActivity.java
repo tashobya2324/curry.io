@@ -3,6 +3,7 @@ package com.example.curryio;
 import android.os.Bundle;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.content.Intent;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -96,10 +97,17 @@ public class OrderActivity extends AppCompatActivity {
 
         // ── Pay Now ──
         btnPayNow.setOnClickListener(v -> {
-            String time = ((TextView) findViewById(selectedChipId)).getText().toString();
-            Toast.makeText(this,
-                    "Order placed for " + time + "!", Toast.LENGTH_LONG).show();
-            // TODO: navigate to Confirmation screen
+            // Get the selected time text
+            String selectedTime = ((TextView) findViewById(selectedChipId))
+                    .getText().toString();
+
+            int subtotal = (PRICE_1 * qty1) + (PRICE_2 * qty2);
+            int total    = subtotal + TAX;
+
+            Intent intent = new Intent(OrderActivity.this, ConfirmationActivity.class);
+            intent.putExtra("arrival_time", selectedTime + " PM");
+            intent.putExtra("total", total);
+            startActivity(intent);
         });
 
         // Set initial state
