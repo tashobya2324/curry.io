@@ -34,7 +34,8 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(intent);
                 return true;
             } else if (id == R.id.nav_profile) {
-                Toast.makeText(this, "Profile coming soon", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(HomeActivity.this, ProfileActivity.class);
+                startActivity(intent);
                 return true;
             }
             return false;

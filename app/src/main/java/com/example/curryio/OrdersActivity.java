@@ -92,7 +92,8 @@ public class OrdersActivity extends AppCompatActivity {
             } else if (id == R.id.nav_orders) {
                 return true; // already here
             } else if (id == R.id.nav_profile) {
-                Toast.makeText(this, "Profile coming soon", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(OrdersActivity.this, ProfileActivity.class);
+                startActivity(intent);
                 return true;
             }
             return false;
